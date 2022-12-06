@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Remoção de livros
+{% endblock title %}
+
+{% block TituloPagina%}
+    Deletar cadastro
+{% endblock %}
+
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    <h4 class="remocao"> Tem certeza que deseja deletar esse cadastro? "{{pessoa.nome}}"?</h4>
+    <br/>
+<button type="submit" class="btn btn-primary btn-deletar">
+    Deletar
+</button>
+
+</form>
+{% endblock content %}

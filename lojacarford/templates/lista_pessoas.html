@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Pessoas Cadastradas</title>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/lista_pessoas.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+{% block content %}
+
+<div id="container"> 
+    <table class="table">
+        <caption>Listagem de Pessoas</caption>
+
+        <thead>
+            <tr class="cabecalho-tabela">
+                <th class="item nome"> Nome </th>
+                <th class="item Email"> Email </th>
+                <th class="item Sexo"> Sexo </th>
+                <th class="item acao">Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pessoa in lista %}
+            <tr class="values">
+                <td>{{pessoa.nome}}</td>
+                <td>{{pessoa.email}}</td>
+                <td>{{pessoa.sexo}}</td>
+
+                <td>
+                    <a href="{% url 'editar_cadastro' pk=pessoa.pk  %}">
+                        Editar
+                    </a>
+                    <a href="{% url 'remover_pessoa' pk=pessoa.pk  %}">
+                        Deletar
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <a class="Cadastrar" href="{% url 'cadastro' %}">
+                        <button > Cadastrar </button>
+                    </a>
+                 </td>
+                 <td>
+                    <a class="Sair" href="{% url 'logout' %}">
+                        <button > Sair </button>
+                    </a>
+                 </td>
+            </tr>
+        </tfoot>
+
+
+    </table>
+</div>
+
+
+
+
+{% endblock content %}
+</body>
+</html>

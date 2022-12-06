@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/form_cadastro_pessoas.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    
+    <title>Formulario de cadastro</title>
+</head>
+<body>
+    
+
+
+
+{% block content %}
+
+    <div class="container_campos">  
+        <form id="form" action="" method="post">
+            {% csrf_token %}  
+            <div class="campos">
+                <label for="nome">Nome</label>
+                <input type="text" maxlength="50" name="nome" id="nome" value="{{ form.nome.value|default:''}} ">
+            </div>
+            <div  class="campos">
+                <label for="email">E-mail</label>
+                <input type="email" maxlength="100" name="email" id="email" value="{{ form.email.value|default:''}}">
+            </div>
+            <div  class="campos">
+                <label for="sexo">Sexo</label>
+                <input type="text" maxlength="1" name="sexo" id="sexo" value="{{ form.sexo.value|default:''}}">
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-primary btn-salvar">
+                    Salvar
+                </button>
+                
+                <a class="btn-cancelar btn btn-primary" href="{% url 'lista_pessoas' %}"> Cancelar 
+                   
+                </a>
+            </div>
+           
+            
+        </form>
+    </div>  
+  
+  
+
+
+
+{% endblock content %}
+</body>
+</html>

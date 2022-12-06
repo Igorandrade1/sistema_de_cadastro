@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Tela de Logout</title>
+    <link rel="stylesheet" href="{% static 'css/styles2.css' %}">
+</head>
+<body>
+<header>
+<h1 class="logout"> Logout </h1>
+</header>
+
+
+<form method="post" action="logout">{% csrf_token %}
+    <div class="container-img">
+        <img src="{% static 'img/placeholder_imgperfil.png'%}" width="150px" >
+    </div>
+    
+   <div class="container-button" align="center">
+       <button  class="button-logout" type="submit"> Tem certeza que desejar sair? </button>
+   </div>
+
+
+</form>
+  <div class="container-button-cancelar" align="center">
+         <a href="{% url  'lista_pessoas' %}">
+            <button  class="button-cancelar" type="submit"> Cancelar </button>
+         </a>
+   </div>
+
+
+</body>
+</html>

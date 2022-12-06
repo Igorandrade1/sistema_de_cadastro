@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Tela de login</title>
+    <meta name="viewport"  content="width=device-width" initial-scale="1"/> 
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+<div class="container-loginform">
+<h1> Login </h1>
+
+
+<form method="post" action="submit">{% csrf_token %}
+    <div class="container-login">
+        <div class="usuario">
+            <label for="id_usuario">Usuario</label>
+            <input type="text" placeholder="Digite seu usuario" maxlength="50" required name="usuario" id="id_usuario">
+        </div>
+        <div class="senha">
+            <label for="id_senha">Senha</label>
+            <input type="password" placeholder="Digite sua senha" required id="id_senha" name="senha">
+        </div>
+        <button type="submit" > Entrar </button>
+    </div>
+</form>
+</div>
+
+
+</body>
+</html>
