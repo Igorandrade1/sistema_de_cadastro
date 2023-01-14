@@ -31,8 +31,40 @@
             </div>
             <div  class="campos">
                 <label for="sexo">Sexo</label>
-                <input type="text" maxlength="1" name="sexo" id="sexo" value="{{ form.sexo.value|default:''}}">
+                <select id="sexo" name="sexo">
+                    <option value="" selected> --- Escolha ---</option>
+                    <option value="F">Feminino</option>-->
+                    <option value="M">Masculino</option>-->
+                    <option value="N">Nenhuma das opções</option>-->
+                </select>
+
             </div>
+
+            <div  class="campos">
+                <label for="carro">Carro</label>
+                <input type="text" maxlength="50" name="nome_carro" id="carro" value="{{ form.nome_carro.value|default:''}}">
+            </div>
+
+<!--              <div  class="campos">-->
+<!--                <label for="modelo">Modelo</label>-->
+<!--                  <select id="modelo" name="modelo">-->
+<!--                    <option value="" selected> -&#45;&#45; Escolha -&#45;&#45;</option>-->
+<!--                    <option value="H">Hatch</option>&ndash;&gt;-->
+<!--                    <option value="S">Sedan</option>&ndash;&gt;-->
+<!--                    <option value="C">Conversível</option>&ndash;&gt;-->
+<!--                </select>-->
+<!--            </div>-->
+
+<!--              <div  class="campos">-->
+<!--                <label for="cor">Cor</label>-->
+<!--                  <select id="cor" name="cor">-->
+<!--                    <option value="" selected> -&#45;&#45; Escolha -&#45;&#45;</option>-->
+<!--                    <option value="1">Amarelo</option>&ndash;&gt;-->
+<!--                    <option value="2">Azul</option>&ndash;&gt;-->
+<!--                    <option value="3">Cinza</option>&ndash;&gt;-->
+<!--                </select>-->
+<!--            </div>-->
+
 
             <div>
                 <button type="submit" class="btn btn-primary btn-salvar">

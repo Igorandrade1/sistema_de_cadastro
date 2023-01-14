@@ -16,13 +16,16 @@
 
 <div id="container"> 
     <table class="table">
-        <caption>Listagem de Pessoas</caption>
+        <caption>Loja Carford</caption>
 
         <thead>
             <tr class="cabecalho-tabela">
-                <th class="item nome"> Nome </th>
-                <th class="item Email"> Email </th>
+                <th class="item nome"> Proprietário </th>
+                <th class="item Email"> Contato Proprietário </th>
                 <th class="item Sexo"> Sexo </th>
+                <th class="item Carro"> Carro </th>
+                <th class="item Modelo"> Modelo </th>
+                <th class="item Cor"> Cor </th>
                 <th class="item acao">Ação</th>
             </tr>
         </thead>
@@ -32,6 +35,10 @@
                 <td>{{pessoa.nome}}</td>
                 <td>{{pessoa.email}}</td>
                 <td>{{pessoa.sexo}}</td>
+                <td>{{pessoa.nome_carro}}</td>
+                <td>{{pessoa.modelo}}</td>
+                <td>{{pessoa.cor}}</td>
+
 
                 <td>
                     <a href="{% url 'editar_cadastro' pk=pessoa.pk  %}">
@@ -41,8 +48,11 @@
                         Deletar
                     </a>
                 </td>
+                {% endfor %}
             </tr>
-            {% endfor %}
+
+
+
         </tbody>
         <tfoot>
             <tr>

@@ -32,23 +32,28 @@ def login_user(request):
 class Formulario_Cadastro(ModelForm):
     class Meta:
         model = Proprietario
-        fields = ['nome', 'email', 'sexo']
+        fields = ['nome', 'email', 'sexo', 'nome_carro', 'modelo', 'cor']
+
 
 
 @login_required(login_url='/login/')
 def lista_pessoas(request, template_name='lista_pessoas.html'):
     Cadastro = Proprietario.objects.all()
+
     cadastrados = {'lista': Cadastro}
+
     return render(request, template_name, cadastrados)
 
 
 @login_required(login_url='/login/')
 def cadastro(request, template_name='cadastro_pessoas.html'):
     form = Formulario_Cadastro(request.POST or None)
+    Cadastro = Proprietario.objects.all()
     if form.is_valid():
         form.save()
         return redirect('lista_pessoas')
     return render(request, template_name, {'form': form})
+
 
 
 @login_required(login_url='/login/')
@@ -74,4 +79,4 @@ def remover_pessoa(request, pk):
 
     return render(request, 'pessoa_delete.html', {'pessoa': pessoa})
 
-    #render(request, 'pessoa_delete.html', {'pessoa': pessoa})
+

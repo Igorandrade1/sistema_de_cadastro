@@ -10,15 +10,6 @@ class Proprietario(models.Model):
         ("N", "Nenhuma das opções")
     )
 
-    nome = models.CharField(max_length=50)
-    sexo = models.CharField(max_length=1, choices=SEXO_CHOICES, blank=False, null=False)
-    email = models.EmailField(max_length=100)
-
-
-class Carro(models.Model):
-    nome_proprietario = models.CharField(max_length=100, blank=False, null=False)
-    nome = models.CharField(max_length=50, blank=False, null=False)
-
     hatch = 'H'
     Sedan = 'S'
     Conversivel = 'C'
@@ -35,8 +26,13 @@ class Carro(models.Model):
         (3, 'Cinza'),
     )
 
-    modelo = models.IntegerField(choices=MODELO_CHOICES, blank=False)
-    cor = models.IntegerField(choices=COR_CHOICES, blank=False)
-    proprietario = models.ForeignKey(Proprietario, on_delete=models.CASCADE)
+    nome = models.CharField(max_length=50)
+    sexo = models.CharField(max_length=1, choices=SEXO_CHOICES, blank=False, null=False)
+    email = models.EmailField(max_length=100)
+    nome_carro = models.CharField(max_length=50, blank=True)
+    modelo = models.IntegerField(choices=MODELO_CHOICES, blank=True, null=True)
+    cor = models.IntegerField(choices=COR_CHOICES, blank=True, null=True)
+
+
 
 
